@@ -155,6 +155,9 @@
       <Project>{843a38b1-babf-4165-ae94-5a3367c86505}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="test_client.py" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
