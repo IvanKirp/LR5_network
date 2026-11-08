@@ -52,7 +52,7 @@ bool RecvAll(SOCKET socket, char* data, const int length)
 bool SendFrame(SOCKET socket, const std::string& payload)
 {
 	if (payload.size() > kMaxPayloadSize ||
-		payload.size() > static_cast<std::size_t>(std::numeric_limits<std::uint32_t>::max()))
+		payload.size() > static_cast<std::size_t>((std::numeric_limits<std::uint32_t>::max)()))
 	{
 		WSASetLastError(WSAEMSGSIZE);
 		return false;
