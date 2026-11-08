@@ -55,8 +55,8 @@ int main()
 		{ "hyphens and punctuation", "x-y, z!", { 7, 1, 3, 0, 3 } },
 		{ "multiple lines", "a\nb\nc", { 5, 3, 3, 0, 3 } },
 		{ "trailing newline", "a\n", { 2, 1, 1, 0, 1 } },
-		{ "Cyrillic text", u8"Привет", { 12, 1, 0, 0, 0 } },
-		{ "mixed text", u8"Abв 12", { 7, 1, 2, 2, 2 } },
+		{ "Cyrillic text", "\xD0\x9F\xD1\x80\xD0\xB8\xD0\xB2\xD0\xB5\xD1\x82", { 12, 1, 0, 0, 0 } },
+		{ "mixed text", "Ab\xD0\xB2 12", { 7, 1, 2, 2, 2 } },
 		{ "maximum payload", std::string(kMaxPayloadSize, 'a'), { kMaxPayloadSize, 1, 1, 0, kMaxPayloadSize } }
 	};
 

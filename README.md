@@ -81,17 +81,17 @@ latinLetters=6
 - Windows;
 - Microsoft Visual Studio с поддержкой C++ и Windows SDK;
 - Python 3 для интеграционных тестов;
-- `matplotlib` потребуется для построения графиков на последующем этапе.
+- `matplotlib` требуется для построения графиков.
 
 ## Открытие и сборка решения
 
-Откройте `LR5_network.sln` в Visual Studio, выберите конфигурацию `Debug` или `Release` и платформу `x64`, затем выполните `Build Solution`.
+Откройте `LR5_network.slnx` в Visual Studio, выберите конфигурацию `Debug` или `Release` и платформу `x64`, затем выполните `Build Solution`.
 
 Из Developer PowerShell сборка выполняется командами:
 
 ```powershell
-msbuild LR5_network.sln /m /p:Configuration=Debug /p:Platform=x64
-msbuild LR5_network.sln /m /p:Configuration=Release /p:Platform=x64
+msbuild LR5_network.slnx /m /p:Configuration=Debug /p:Platform=x64
+msbuild LR5_network.slnx /m /p:Configuration=Release /p:Platform=x64
 ```
 
 Ожидаемые исполняемые файлы находятся в `bin/x64/Debug/` и `bin/x64/Release/`.
@@ -168,13 +168,25 @@ python tests\test_client.py --reuse-server --host 127.0.0.1 --port 20054
 
 ## Эксперименты и графики
 
-Скрипты экспериментов и построения графиков относятся к следующим этапам работы:
+Скрипт экспериментов запускает сервер, выполняет минимум три обмена для каждого размера сообщения и записывает реальные результаты в CSV:
 
 - `scripts/run_experiments.py` — измерение времени обмена для сообщений размером 100, 1000 и 10000 байт с минимум тремя повторами;
 - `scripts/plot_results.py` — построение графиков задержки и пропускной способности;
 - `data/experiments.csv` — результаты измерений.
 
-До фактического запуска экспериментов нельзя указывать измеренные значения или строить графики по искусственным данным.
+Запуск экспериментов:
+
+```powershell
+python scripts\run_experiments.py --server bin\x64\Debug\Server.exe
+```
+
+Построение графиков по CSV:
+
+```powershell
+python scripts\plot_results.py
+```
+
+Результаты сохраняются в `data/latency.png` и `data/throughput.png`. Графики строятся только по строкам CSV с результатом `PASS`; искусственные данные не используются.
 
 ## UML-диаграмма
 
@@ -194,5 +206,5 @@ LR5_network/
 ├── data/
 ├── diagrams/
 │   └── sequence.puml
-├── LR5_network.sln
+├── LR5_network.slnx
 └── README.md
