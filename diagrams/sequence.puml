@@ -1,0 +1,32 @@
+@startuml
+
+title TCP-служба анализа текста — последовательность обмена
+
+actor "Пользователь" as User
+participant "Клиент" as Client
+participant "TCP-соединение" as TCP
+participant "Сервер" as Server
+participant "Модуль анализа" as Analyzer
+
+User -> Client: Запуск с --text или --file
+Client -> Client: Чтение текста в байтах
+Client -> TCP: Установление TCP-соединения
+TCP -> Server: connect()
+
+Client -> TCP: 4 байта длины (htonl)
+Client -> TCP: Полезная нагрузка текста
+TCP -> Server: Заголовок и текст
+Server -> Server: RecvAll / проверка длины
+Server -> Analyzer: AnalyzeText(text)
+Analyzer --> Server: TextStatistics
+Server -> Server: Формирование ответа
+Server -> TCP: 4 байта длины ответа
+Server -> TCP: Строки статистики
+TCP --> Client: Заголовок и ответ
+Client -> Client: RecvAll / разбор статистики
+Client --> User: Вывод bytes, lines, words, digits, latinLetters
+
+Client -> TCP: Закрытие соединения
+TCP -> Server: Завершение TCP-сеанса
+
+@enduml
