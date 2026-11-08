@@ -154,10 +154,12 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="TextAnalyzer.h" />
+    <ClInclude Include="Protocol.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Common.cpp" />
     <ClCompile Include="TextAnalyzer.cpp" />
+    <ClCompile Include="Protocol.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
