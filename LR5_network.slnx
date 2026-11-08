@@ -3,8 +3,8 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="Client/Client.vcxproj" />
-  <Project Path="Common/Common.vcxproj" />
-  <Project Path="Server/Server.vcxproj" />
-  <Project Path="Tests/Tests.vcxproj" />
+  <Project Path="Client/Client.vcxproj" Id="fe3a33bb-30b0-422f-b313-9cba1a07cda1" />
+  <Project Path="Common/Common.vcxproj" Id="843a38b1-babf-4165-ae94-5a3367c86505" />
+  <Project Path="Server/Server.vcxproj" Id="26a7f97e-6984-4fee-b75d-475635b143a8" />
+  <Project Path="Tests/Tests.vcxproj" Id="bd14b016-d536-480e-9755-5b7eefd516bd" />
 </Solution>
