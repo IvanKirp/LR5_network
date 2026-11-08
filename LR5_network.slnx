@@ -1,0 +1,10 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Client/Client.vcxproj" />
+  <Project Path="Common/Common.vcxproj" />
+  <Project Path="Server/Server.vcxproj" />
+  <Project Path="Tests/Tests.vcxproj" />
+</Solution>
